@@ -1,0 +1,78 @@
+model_type: 'RF'
+
+
+pkl_root: ./data/pkl
+rf_train: ./data/rf_train.csv
+rf_val: ./data/rf_val.csv
+rf_test: ./data/rf_test.csv
+
+do_train: True
+
+cell_class: 
+- bfn
+- ptc
+- mtc
+- fn
+- ss
+- aus
+
+slide_class:
+- yin
+- AUS
+- FN
+- PTC
+- OT
+
+
+model_path: ./ckpt/RF.pkl
+
+
+feature_configs:
+ hist_v:
+  type: 'hist'
+  thresh: 0.0
+  top_num_all_class: -1
+  top_num_each_class: -1
+  normalize_axis: 'v'
+  conf_bins: 25
+  conf_range: [0.15,1.0] 
+  cumsum: False
+ hist_v2:
+  type: 'hist'
+  thresh: 0.0
+  top_num_all_class: 35
+  top_num_each_class: -1
+  normalize_axis: 'v'
+  conf_bins: 25
+  conf_range: [0.15,1.0]
+  cumsum: False
+ hist_h:
+  type: 'hist'
+  thresh: 0.0
+  top_num_all_class: -1
+  top_num_each_class: -1
+  normalize_axis: 'h'
+  conf_bins: 12
+  conf_range: [0.1,1.0]
+  cumsum: False
+ hist_all: 
+  type: 'hist'
+  thresh: 0.0
+  top_num_all_class: -1
+  top_num_each_class: 100
+  normalize_axis: 'all'
+  conf_bins: 12
+  conf_range: [0.1,1.0]
+ hist_all: 
+  type: 'hist'
+  thresh: 0.0
+  top_num_all_class: -1
+  top_num_each_class: -1
+  normalize_axis: 'all'
+  conf_bins: 20
+  conf_range: [0.1,1.0]
+  cumsum: True
+ top_conf:
+  type: 'top_conf'
+  n_top_conf: [0,2]
+

@@ -1,0 +1,38 @@
+model_type: 'TNF'
+
+pkl_root: ./data/pkl
+tnf_train: ./data/tnf_train.csv
+tnf_val: ./data/tnf_val.csv
+tnf_test: ./data/tnf_test.csv
+
+
+
+do_train: True
+
+ckpt_dir: ./ckpt/TNF
+ckpt_path: ./ckpt/TNF/model.hfd5
+
+wsi_cls_list_train_val:
+- yin
+- AUS
+- FN
+- PTC
+- OT
+
+no_cuda: False
+gpu_ids:  "0,1,2,3,4,5,6,7"
+
+use_cls_bag_size: 10
+top_cls_bag_size: 10
+cls_bag_size: 20
+
+
+cell_cls_list: 
+- bfn
+- ptc
+- mtc 
+- fn
+- ss
+- aus
+
+batch_size: 256

@@ -1,0 +1,62 @@
+no_cuda: False
+gpu_ids:  "0,1,2,3,4,5,6,7"
+
+do_train: False
+
+crop_size: 768
+batch_size: 2
+model_input_size: 768
+
+test_csv_path: ./assets/test_patches.csv
+patches_root: ./data/patches
+
+save_model_path: ./ckpt/pagin
+load_model_path: ./ckpt/pagin/model.hdf5
+
+basemodel_type: efficientnet
+basemodel: EfficientNetB0
+
+train_class_list:
+
+train_patch_class_mapping:
+  bfn: 
+  - BFN
+  aus: 
+  - AUS
+  ptc: 
+  - PTC
+  - SUS_PTC
+  mtc: 
+  - MTC
+  fn: 
+  - FN
+  - MFOLL
+  ss: 
+  - SS
+  - HURTHLE
+  others: 
+  - NON
+  - RED
+  - TS
+  - NY
+  - COLL
+  - TC
+  - NB
+  - NORMAL
+  - LN
+  - FNeg
+  - MGC
+
+train_patch_class_list: 
+- others
+- bfn
+- aus
+- ptc
+- mtc
+- fn
+- ss
+
+upsample: {}
+sample_weight: {}
+select_n_others: 15
+instances_per_image: 1
